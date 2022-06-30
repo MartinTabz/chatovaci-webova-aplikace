@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Přihlášení";
+}
+
+
+<form action="/Uzivatel/Prihlasit" method="post" style="display: block;">
+    <div asp-validation-summary="All"></div>
+
+    <label for="nick_log">Uživatelské jméno:</label>
+    <input name="nick_log" type="text" />
+
+
+    <label for="heslo_log">Heslo</label>
+    <input name="heslo_log" type="password" />
+
+    <label for="zapamatovat">Zůstat přihlášen</label>
+    <input type="checkbox" value="true" name="zapamatovat"/><br />
+
+    <input type="submit" value="Prihlasit" />
+</form>

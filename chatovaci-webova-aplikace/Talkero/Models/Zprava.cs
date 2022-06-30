@@ -7,9 +7,9 @@ namespace Talkero.Models
         [Key]
         public int ZpravaId { get; set; }
 
-        public string ObsahZpravy { get; set; }
+        public string ObsahZpravy { get; set; } = String.Empty;
 
-        public string Obrazek { get; set; }   
+        public string Obrazek { get; set; } = String.Empty;
         
         public DateTime DatumOdeslani { get; set; }
     }

@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Registrace";
+}
+
+
+<form action="/Uzivatel/Registrovat" method="post" style="display: block;">
+    <div asp-validation-summary="All"></div>
+
+    <label for="nick">Uživatelské jméno:</label>
+    <input name="nick" type="text" />
+
+    <label for="mail">E-Mail:</label>
+    <input name="mail" type="email" />
+
+
+    <label for="heslo">Heslo</label>
+    <input name="heslo" type="password" />
+
+
+    <label for="hesloKontrola">Heslo znovu</label>
+    <input name="hesloKontrola" type="password" /><br />
+
+    <label for="souhlas">Souhlasím s podmínkami soukromí a zpracováním osobních údajů</label>
+    <input type="checkbox" value="true" name="souhlas"/><br />
+
+
+    <label for="novinky">Zasílat novinky</label>
+    <input type="checkbox" value="true" name="novinky"/><br />
+
+    <input type="submit" value="Registrovat" />
+</form>

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Talkero.Models
 {
@@ -7,13 +8,10 @@ namespace Talkero.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
         public string Mail { get; set; } = String.Empty;
 
-        [Required]
         public string Nick { get; set; } = String.Empty;
 
-        [Required]
         public string Heslo { get; set; } = String.Empty;
 
         public bool Overen { get; set; }
@@ -33,7 +31,5 @@ namespace Talkero.Models
         public bool SouhlasiSPodminkami { get; set; }
 
         public bool ZasilatNovinky { get; set; }
-
-        public string DatumNarozeni { get; set; } = String.Empty;
     }
 }
