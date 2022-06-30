@@ -6,9 +6,9 @@ Chatovací aplikace s účelem testování a učení
 
 ## Featury
 
-- Vytváření účtu
-- Chatovaní pro všechny
-- Úprava profilu
+- Registrace, přihlášení a úprava profilu (Profilová fotka, banner)
+- Chatování
+- Administrace s banováním
 - Nahrávání obrázků
 
 
