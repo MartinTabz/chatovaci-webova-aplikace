@@ -42,6 +42,9 @@ namespace Talkero.Controllers
         }
 
         [HttpPost]
+        public IActionResult Profil()
+
+        [HttpPost]
         public IActionResult Registrovat(string mail, string nick, string heslo, string hesloKontrola, bool souhlas, bool novinky, Uzivatel model)
         {
             // Vytvoří lokální proměnou uživatele který již má zadaný nick, pokud však nenalezne identický nick výsledek je NULL
@@ -152,6 +155,8 @@ namespace Talkero.Controllers
             HttpContext.Session.SetString("Prihlaseny", prihlasovanyUzivatel.Nick);
             HttpContext.Session.SetString("PrihlasenyMail", prihlasovanyUzivatel.Mail);
             HttpContext.Session.SetInt32("Identita", prihlasovanyUzivatel.Id);
+            HttpContext.Session.SetString("Profilovka", prihlasovanyUzivatel.Profilovka);
+            HttpContext.Session.SetString("Banner", prihlasovanyUzivatel.Banner);
 
             // A v posledním kroku se vrátí na index
             return RedirectToAction("Index", "Home");

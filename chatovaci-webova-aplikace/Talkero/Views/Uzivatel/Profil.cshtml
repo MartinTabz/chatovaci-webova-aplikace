@@ -1,5 +1,32 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor;
+@using Microsoft.AspNetCore.Http;
 @{
+    string? prihlasenyUzivatel = HttpContextAccessor.HttpContext.Session.GetString("Prihlaseny");
+    string? prihlasenyUzivatelProfilovka = HttpContextAccessor.HttpContext.Session.GetString("Profilovka");
+    string? prihlasenyUzivatelBanner = HttpContextAccessor.HttpContext.Session.GetString("Banner");
+    int? idUzivatel = HttpContextAccessor.HttpContext.Session.GetInt32("Identita");
+}
+@model Uzivatel
+@if (prihlasenyUzivatel == null)
+{
+
+}
+else 
+{
+    <img src="@prihlasenyUzivatelProfilovka" alt="Profilovka uživatele @prihlasenyUzivatel" asp-append-version="true"/>
+    <img src="@prihlasenyUzivatelBanner" alt="Banner uživatele @prihlasenyUzivatel" asp-append-version="true"/>
+    <form method="post" action="/Uzivatel/Profil">
+        <input type="file" name="fileProfilovka" accept="image/png, image/jpeg, image/jpg" />
+        <input type="file" name="fileBanner" accept="image/png, image/jpeg, image/jpg" />
+
+        <label asp-for="Nick">Uživatelské jméno</label>
+        <input asp-for="Nick"/>
+
+        <label asp-for="Mail">E-Mail</label>
+        <input asp-for="Mail" disabled/>
+
+        <input type="submit" value="Uložit">
+    </form>
+    
+    <a style="color: red;" asp-controller="Uzivatel" asp-action="Odhlasit">Odhlásit se</a>
 }
